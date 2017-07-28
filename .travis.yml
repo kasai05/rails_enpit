@@ -1,0 +1,19 @@
+language: ruby
+rvm:
+- 2.2.5
+#- 1.9.3
+#- jruby-19mode
+#- rbx-2
+deploy:
+  provider: heroku
+  api_key:
+    secure: b9RWo8HMx2YLERvR/1ur8Ai/Sld5f7wXI/cc1t8UO2Sjx4zZhRSVchvsJ60VEELc02T7HBw02FJqmID5hxvNXT85Qp+ik2+PTrPUFd1kTGtCy0cHZaeSURob0F80u3gl/kv7nitvFNC056GwtI+/DMrmaVVQeZdNuKmx0Q8Bs1Pku5LRxbRUIUghJNelPKGQbb7IRUo7VIkCUUI+s/bUQYvrJlQ8WkLrtRKh8QPyBg8YeaEaCBHQ/RbyRTIDUlqT687BEHXd4lxABjGOG3FJJFipTEnsOpxRP1g+6rep++gWOGEzzSh9kwMqkvAs6k+PXL+dHUMxnHFCd38aPF4nXBGlWSVruPMEFm6yCKUi7wWdFsp/CDEJuTcCTbQeQ4M1EV7NbovN+AK+B2d64VeotCbwbNt1t6jOf2oxQZbgTbPAYwPD04bi9TN3GHdKM+V+KG8EoYKTC5paCzc3bCP71JNsuhuAcM+b+V4i6b0i3seGqjUTKijynG60QT4usXrf8RH+Io81tPb1KycMxnTyelPB5gG2KrCTAGUebUJ+Ul7YnajnpEeM6X7vRqR3GwemggXEYYfqJKhaEwmySxxsA/9FlzWH5q1ofNy37dzktsFMLx8xtYFvDyxuyxMwAzp0mawndRWNGxDghp7nEMXtOIMLJBKY2Itezhb65UZ518k=
+  app: enigmatic-forest-24680
+  on:
+    repo: KozyDozy/rails_enpit
+addons:
+  postgresql: "9.3"
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
+  - bundle exec rake db:migrate RAILS_ENV=test
