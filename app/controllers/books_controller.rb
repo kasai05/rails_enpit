@@ -1,3 +1,7 @@
+require 'net/https'
+require 'uri'
+require 'json'
+
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
@@ -10,6 +14,19 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    author = @book.author
+    logger.debug "著者は#{author}です。googleBookApiを呼び出します。"
+    uri  = URI.parse URI.encode "https://www.googleapis.com/books/v1/volumes?q=#{author}"
+    json = Net::HTTP.get(uri)
+    rst  = JSON.parse(json)
+    @abooks = {}
+    for i in 0..4 do
+      book = rst["items"][i]["volumeInfo"]
+      title = book["title"]
+      desc  = book["description"]
+      @abooks[i] = {"title" => title, "desc" => desc}
+      logger.debug ":::::::::::::#{title}::::: #{desc}"
+    end
   end
 
   # GET /books/new
