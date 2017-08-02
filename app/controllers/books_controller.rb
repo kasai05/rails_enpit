@@ -19,12 +19,12 @@ class BooksController < ApplicationController
     uri  = URI.parse URI.encode "https://www.googleapis.com/books/v1/volumes?q=#{author}"
     json = Net::HTTP.get(uri)
     rst  = JSON.parse(json)
-    @abooks = {}
+    @abooks = []
     for i in 0..4 do
       book = rst["items"][i]["volumeInfo"]
       title = book["title"]
       desc  = book["description"]
-      @abooks[i] = {"title" => title, "desc" => desc}
+      @abooks.push({"title" => title, "desc" => desc})
       logger.debug ":::::::::::::#{title}::::: #{desc}"
     end
   end
