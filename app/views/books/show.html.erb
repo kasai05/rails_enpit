@@ -20,7 +20,7 @@
     <% @abooks.each do |abook| %>
     <dl class="info">
       <dt><strong><%= abook['title'] %></strong></dt>
-      <dd><%= abook['desc'] %></dd>
+      <dd><%= abook['desc'].blank? ? "no description." : abook['desc'] %></dd>
     </dl>
     <br>
     <% end %>
