@@ -1,3 +1,45 @@
 // Place all the styles related to the books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul {
+  margin-top: 0;
+  padding-left: 20px;
+}
+
+ul li {
+  list-style: none;
+}
+
+#content {
+ width: 70%;
+ margin: auto;
+}
+
+#detail {
+  width: 80%
+}
+
+.caption {
+  padding: 3px;
+}
+
+.info {
+  margin: 0px;
+}
+
+.info dt {
+  margin-top: 1em;
+  padding: 0.7em;
+  color: #000000;
+  background-color: #AFB5B6;
+}
+
+.info dd {
+  padding: 0 1em;
+  margin-left: 0;
+  font-size: .8em;
+  border-width: 0 1px 1px;
+  border-style: none solid solid;
+  border-color: #AFB5B6;
+}
