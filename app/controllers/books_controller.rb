@@ -11,6 +11,14 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
+#  def show(geo)
+#    url =  "http://ip-api.com/json/"
+#    res = urlopen(url).read().decode('utf-8')
+#    @lat = json.loads(res)['lat']
+#    @lon = json.loads(res)['lon']
+#    @city = json.loads(res)['city']
+#  end
+  
   # GET /books/1
   # GET /books/1.json
   def show
@@ -29,22 +37,13 @@ class BooksController < ApplicationController
     end
   end
 
-  def show(geo)
-    url =  "http://ip-api.com/json/"
-    res = urlopen(url).read().decode('utf-8')
-    @lat = json.loads(res)['lat']
-    @lon = json.loads(res)['lon']
-    @city = json.loads(res)['city']
-  end
-
   # GET /books/new
   def new
     @book = Book.new
   end
 
   # GET /books/1/edit
-  def edit
-  end
+  def edit  end
 
   # POST /books
   # POST /books.json
