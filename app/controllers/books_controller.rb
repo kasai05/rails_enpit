@@ -29,6 +29,14 @@ class BooksController < ApplicationController
     end
   end
 
+  def show(geo)
+    url =  "http://ip-api.com/json/"
+    res = urlopen(url).read().decode('utf-8')
+    @lat = json.loads(res)['lat']
+    @lon = json.loads(res)['lon']
+    @city = json.loads(res)['city']
+  end
+
   # GET /books/new
   def new
     @book = Book.new
