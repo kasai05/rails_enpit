@@ -9,16 +9,14 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     @books = Book.all
+   #map display  
+   # url =  "http://ip-api.com/json/"
+   # res = urlopen(url).read().decode('utf-8')
+   # @lat = json.loads(res)['lat']
+   # @lon = json.loads(res)['lon']
+   # @city = json.loads(res)['city']
   end
 
-#  def show(geo)
-#    url =  "http://ip-api.com/json/"
-#    res = urlopen(url).read().decode('utf-8')
-#    @lat = json.loads(res)['lat']
-#    @lon = json.loads(res)['lon']
-#    @city = json.loads(res)['city']
-#  end
-  
   # GET /books/1
   # GET /books/1.json
   def show
@@ -27,12 +25,12 @@ class BooksController < ApplicationController
     uri  = URI.parse URI.encode "https://www.googleapis.com/books/v1/volumes?q=#{author}"
     json = Net::HTTP.get(uri)
     rst  = JSON.parse(json)
-    @abooks = {}
+    @abooks = []
     for i in 0..4 do
       book = rst["items"][i]["volumeInfo"]
       title = book["title"]
       desc  = book["description"]
-      @abooks[i] = {"title" => title, "desc" => desc}
+      @abooks.push({"title" => title, "desc" => desc})
       logger.debug ":::::::::::::#{title}::::: #{desc}"
     end
   end
@@ -43,7 +41,8 @@ class BooksController < ApplicationController
   end
 
   # GET /books/1/edit
-  def edit  end
+  def edit
+  end
 
   # POST /books
   # POST /books.json
