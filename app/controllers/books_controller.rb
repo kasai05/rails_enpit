@@ -9,13 +9,12 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     @books = Book.all
- 
-  #map display  
-    url =  "http://ip-api.com/json/"
-    res = urlopen(url).read().decode('utf-8')
-    @lat = json.loads(res)['lat']
-    @lon = json.loads(res)['lon']
-    @city = json.loads(res)['city']
+   #map display  
+   # url =  "http://ip-api.com/json/"
+   # res = urlopen(url).read().decode('utf-8')
+   # @lat = json.loads(res)['lat']
+   # @lon = json.loads(res)['lon']
+   # @city = json.loads(res)['city']
   end
 
   # GET /books/1
