@@ -26,10 +26,9 @@ class BooksController < ApplicationController
     json = Net::HTTP.get(uri)
     rst  = JSON.parse(json)
     @abooks = []
-    max = 5
-    n = 5
+    n = 0
     i = 0
-    while i < max do
+    while i < 5 do
       info  = rst["items"][n]["volumeInfo"]
       n += 1
       if info["language"] != "ja" then
