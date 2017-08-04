@@ -1,21 +1,33 @@
-<p id="notice"><%= notice %></p>
+<%= stylesheet_link_tag "book", :media => "all" %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
+<section id="content">
+<header>
+  <h2>Book's Show Page</h2>
+</header>
 
-<p>
-  <strong>Author:</strong>
-  <%= @book.author %>
-</p>
+<div id="outline">
+  <p id="notice"><%= notice %></p>
 
-<% @abooks.each do |abook| %>
-  <tr>
-    <td><%= abook['title'] %></td>
-    <td><%= abook['desc'] %></td>
-  </tr>
-<% end %>
+  <h3 class="caption">Outline</h3>
+    <ul>
+      <li><strong>Title:</strong><%= @book.title %></li>
+      <li><strong>Author:</strong><%= @book.author %></li>
+    </ul>
+  </div>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+  <div id="detail">
+    <h3 class="caption">Other's Books List</h3>
+    <% @abooks.each do |abook| %>
+    <dl class="info">
+      <dt><strong><%= abook['title'] %></strong></dt>
+      <dd><%= abook['desc'].blank? ? "no description." : abook['desc'] %></dd>
+    </dl>
+    <br>
+    <% end %>
+  </div>
+
+  <footer>
+    <%= link_to 'Edit', edit_book_path(@book) %>
+    <%= link_to 'Back', books_path %>
+  </footer>
+</section>
