@@ -26,11 +26,8 @@ class BooksController < ApplicationController
     json = Net::HTTP.get(uri)
     rst  = JSON.parse(json)
     @abooks = []
-    n = 0
-    i = 0
-    while i < 5 do
-      info  = rst["items"][n]["volumeInfo"]
-      n += 1
+    rst["items"].each {|item|
+      info = item["volumeInfo"]
       if info["language"] != "ja" then
         logger.debug "日本語以外の書籍のためスキップします。\n"
         next
@@ -38,9 +35,8 @@ class BooksController < ApplicationController
       title = info["title"]
       desc  = info["description"]
       @abooks.push({"title" => title, "desc" => desc})
-      logger.debug "n:#{n}_____title:#{title}_____desc#{desc}\n"
-      i += 1
-    end
+      logger.debug "title:#{title}_____desc#{desc}\n"
+    }
   end
 
   # GET /books/new
