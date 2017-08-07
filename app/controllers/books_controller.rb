@@ -38,10 +38,11 @@ class BooksController < ApplicationController
       pub   = nilCheck(info["publisher"])
       date  = nilCheck(info["publishedDate"])
       page  = nilCheck(info["pageCount"])
+      image = nilCheck(info["imageLinks"], "thumbnail")
       price = nilCheck(sale["retailPrice"], "amount")
       price = price == "none" ? price : price.to_i
-      @abooks.push({"title" => title, "desc" => desc, "pub" => pub, "page" => page, "price" => price, "date" => date })
-      logger.debug "title:#{title}_____desc:#{desc}_____pub:#{pub}_____date:#{date}_____page:#{page}_____price:#{price}\n"
+      @abooks.push({"title" => title, "desc" => desc, "pub" => pub, "page" => page, "image" => image, "price" => price, "date" => date })
+      logger.debug "title:#{title}_____desc:#{desc}_____pub:#{pub}_____date:#{date}_____page:#{page}_____image:#{image}_____price:#{price}\n"
     }
   end
 
