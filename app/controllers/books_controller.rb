@@ -28,14 +28,21 @@ class BooksController < ApplicationController
     @abooks = []
     rst["items"].each {|item|
       info = item["volumeInfo"]
+      sale = item["saleInfo"]
       if info["language"] != "ja" then
         logger.debug "日本語以外の書籍のためスキップします。\n"
         next
       end
-      title = info["title"]
-      desc  = info["description"]
-      @abooks.push({"title" => title, "desc" => desc})
-      logger.debug "title:#{title}_____desc#{desc}\n"
+      title = nilCheck(info["title"])
+      desc  = nilCheck(info["description"])
+      pub   = nilCheck(info["publisher"])
+      date  = nilCheck(info["publishedDate"])
+      page  = nilCheck(info["pageCount"])
+      image = nilCheck(info["imageLinks"], "thumbnail")
+      price = nilCheck(sale["retailPrice"], "amount")
+      price = price == "none" ? price : price.to_i
+      @abooks.push({"title" => title, "desc" => desc, "pub" => pub, "page" => page, "image" => image, "price" => price, "date" => date })
+      logger.debug "title:#{title}_____desc:#{desc}_____pub:#{pub}_____date:#{date}_____page:#{page}_____image:#{image}_____price:#{price}\n"
     }
   end
 
