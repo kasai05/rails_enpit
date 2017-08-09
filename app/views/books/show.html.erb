@@ -20,7 +20,12 @@
     <% @abooks.each do |abook| %>
     <dl class="info">
       <dt><strong><%= abook['title'] %></strong></dt>
-      <dd><%= abook['desc'].blank? ? "no description." : abook['desc'] %></dd>
+      <dd><%= abook['desc'].eql?('none') ? "-" : abook['desc'] %></dd>
+      <dd><%= abook['pub'].eql?('none') ? "-" : abook['pub'] %></dd>
+      <dd><%= abook['date'].eql?('none') ? "-" : abook['date']  %></dd>
+      <dd><%= abook['page'].eql?('none') ? "-" : abook['page']  %></dd>
+      <dd><%= abook['image'].eql?('none') ? "-" : abook['image']  %></dd>
+      <dd><%= abook['price'].eql?('none') ? "-" : abook['price']  %></dd>
     </dl>
     <br>
     <% end %>
