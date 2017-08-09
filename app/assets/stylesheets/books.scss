@@ -2,6 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// indexページ
+table.booklist {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  border: 1px solid #ccc;
+  background: #f3f6f7;
+  width: 70%
+}
+
+table.booklist thead th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #fff;
+    background: #04162e;
+}
+table.booklist td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+}
+
+// showページ
 ul {
   margin-top: 0;
   padding-left: 20px;

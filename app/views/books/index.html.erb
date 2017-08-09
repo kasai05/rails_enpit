@@ -1,14 +1,12 @@
 <%= render 'shared/header' %>
-
+<h2><%= link_to 'New Book', new_book_path %></h2>
 <p id="notice"><%= notice %></p>
-
-<h1>Listing Books</h1>
-
-<table>
+<table class="booklist">
   <thead>
     <tr>
       <th>Title</th>
       <th>Author</th>
+      <th>Action</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -27,14 +25,6 @@
 </table>
 
 <br>
-<%= link_to 'New Book', new_book_path %>
 <p>
 <%= link_to 'Top page', top_path %>
 </p>
-<!--<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css">
-<script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.js"></script>-->

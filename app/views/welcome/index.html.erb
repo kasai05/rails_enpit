@@ -1,33 +1,12 @@
 <!DOCTYpe html>
 <html lang="ja">
-<head>
+  <head>
     <meta charset="utf-8">
     <title>本検索</title>
-</head>
-<body>
-<%= render 'shared/header' %>
-    <p>
-    このアプリは、自分が読んだことのある本を登録すると、その著者の作品が表示されます。<br>
-    まずは自分が読んだことがある本を登録してみましょう。<br><br>
-   <em> 【つかいかた】</em><br>
-    About pageを参照してみましょう</p>
-
-<p>
-<i class="fa fa-book fa-2x"></i>
-<%= link_to 'Books', '/books' %>
-</p>
-<p>
-<i class="fa fa-info-circle fa-2x"></i>
-<%= link_to 'About page', about_path %>
-</p>
-<p>
-<i class="fa fa-question fa-2x"></i>
-<%= link_to 'Help page', help_path %>
-</p>
-
-<p>
-<i class="fa fa-amazon fa-2x"></i>
-  <%= link_to '現在の本ランキングを見に行く', 'https://www.amazon.co.jp/gp/bestsellers/books/ref=zg_bs_unv_b_1_3236815051_3/355-7623218-6928255' %>
-</p>
-</body>
+  </head>
+  <body>
+    <%= render 'shared/header' %>
+    <p>本の著作者を登録すると、その著作者に関連する本の情報が一覧表示されます。<br>
+      まずは自分が読んだことがある本を登録してみましょう。</p>
+  </body>
 </html>
