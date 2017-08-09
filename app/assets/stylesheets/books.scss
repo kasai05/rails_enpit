@@ -26,20 +26,31 @@ ul li {
 
 .info {
   margin: 0px;
+  padding-bottom: 20px;
+  overflow: hidden;
+  border-bottom: 1px dashed #000000;
 }
 
-.info dt {
+.info table {
   margin-top: 1em;
   padding: 0.7em;
-  color: #000000;
-  background-color: #AFB5B6;
 }
 
-.info dd {
-  padding: 0 1em;
+.info th {
+  font-size: 0.8em;
+}
+
+.info td {
   margin-left: 0;
-  font-size: .8em;
-  border-width: 0 1px 1px;
-  border-style: none solid solid;
-  border-color: #AFB5B6;
+  font-size: 0.8em;
+}
+
+.info .left {
+  float: left;
+  width: 20%
+}
+
+.info .right {
+  float: right;
+  width: 80%;
 }

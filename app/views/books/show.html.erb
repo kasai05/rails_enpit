@@ -1,27 +1,58 @@
 <%= stylesheet_link_tag "book", :media => "all" %>
 
 <section id="content">
-<header>
-  <h2>Book's Show Page</h2>
-</header>
+  <header>
+    <h2>Book's Show Page</h2>
+  </header>
 
-<div id="outline">
-  <p id="notice"><%= notice %></p>
+  <div id="outline">
+    <p id="notice"><%= notice %></p>
 
-  <h3 class="caption">Outline</h3>
+    <h3 class="caption">Outline</h3>
     <ul>
-      <li><strong>Title:</strong><%= @book.title %></li>
-      <li><strong>Author:</strong><%= @book.author %></li>
+      <li>
+        <strong>Title:</strong><%= @book.title %></li>
+      <li>
+        <strong>Author:</strong><%= @book.author %></li>
     </ul>
   </div>
 
   <div id="detail">
     <h3 class="caption">Other's Books List</h3>
     <% @abooks.each do |abook| %>
-    <dl class="info">
-      <dt><strong><%= abook['title'] %></strong></dt>
-      <dd><%= abook['desc'].blank? ? "no description." : abook['desc'] %></dd>
-    </dl>
+    <main class="info">
+      <div class="left">
+        <img src="<%= abook['image'].eql?('none') ? " -" : abook['image'] %>" alt="" width="120" height="160"/>
+      </div>
+      <div class="right">
+        <p><strong><%= abook['title'] %></strong></p>
+        <p><strong><%= abook['desc'].eql?('none') ? "-" : abook['desc'] %></strong></p>
+        <table>
+          <tbody>
+            <tr>
+              <th>出版社 :
+              </th>
+              <td><%= abook['pub'].eql?('none') ? "-" : abook['pub'] %></td>
+            </tr>
+            <tr>
+              <th>発売日 :
+              </th>
+              <td><%= abook['date'].eql?('none') ? "-" : abook['date']  %></td>
+            </tr>
+            <tr>
+              <th>ページ数 :
+              </th>
+              <td><%= abook['page'].eql?('none') ? "-" : abook['page']  %></td>
+            </tr>
+            <tr>
+              <th>価格 :
+              </th>
+              <td><%= abook['price'].eql?('none') ? "-" : abook['price']  %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
     <br>
     <% end %>
   </div>
