@@ -1,19 +1,33 @@
-<header background-color=#999999">
+<header>
  <style type="text/css">
-    span {
-        background: linear-gradient(transparent 40%, #ffff66 40%);
-    }
- </style>
-  <h2><i class="fa fa-search fa-3x"></i><%= link_to 'ここから本検索 by Team2', top_path %></h2>
+span {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #289daf;/*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #2b8896;
+    border-radius: 3px;
+}
+span:hover {
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
+}  
+
+</style>
+
+<h2><i class="fa fa-search fa-3x"></i><%= link_to 'ここから本検索 by Team2', top_path %></h2>
 
   <span>
     <i class="fa fa-book fa-2x"></i>
-    <%= link_to 'Books', '/books' %></span>
+    <%= link_to 'Books', '/books', {:style=>'color:#FFF;'}  %></span>
   <span>
     <i class="fa fa-info-circle fa-2x"></i>
-    <%= link_to 'About page', about_path %></span>
+    <%= link_to 'About page', about_path, {:style=>'color:#FFF;'}  %></span>
   <span>
     <i class="fa fa-question fa-2x"></i>
-    <%= link_to 'Help page', help_path %></span>
+    <%= link_to 'Help page', help_path, {:style=>'color:#FFF;'}   %></span>
 
 </header>
